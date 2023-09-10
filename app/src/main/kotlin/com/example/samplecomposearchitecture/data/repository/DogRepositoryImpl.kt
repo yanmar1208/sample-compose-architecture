@@ -9,6 +9,7 @@ import javax.inject.Inject
 class DogRepositoryImpl @Inject constructor(
     private val dogAPI: DogAPI,
 ) : DogRepository {
+
     override suspend fun getDog(): Dog =
         dogAPI.getDog().toDomainModel()
 }

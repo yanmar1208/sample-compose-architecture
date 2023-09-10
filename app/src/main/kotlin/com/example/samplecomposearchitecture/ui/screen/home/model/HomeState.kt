@@ -1,9 +1,25 @@
 package com.example.samplecomposearchitecture.ui.screen.home.model
 
 import android.os.Parcelable
+import com.example.samplecomposearchitecture.domain.dog.model.Dog
+import com.example.samplecomposearchitecture.ui.core.result.LoadResult
 import kotlinx.parcelize.Parcelize
 
-@Parcelize
+/**
+ * ホーム画面のState
+ *
+ * @property dogResult Dogデータの読み込み状態
+ */
 data class HomeState(
-    val ex: String,
-): Parcelable
+    val dogResult: LoadResult<Dog>,
+) {
+
+    companion object {
+        /**
+         * 初期化
+         */
+        fun initialState(): HomeState = HomeState(
+            dogResult = LoadResult.Initial,
+        )
+    }
+}
