@@ -12,5 +12,5 @@ sealed class HomeEvent {
      */
     data class ToDetail(
         val dog: Dog,
-    ): HomeEvent()
+    ) : HomeEvent()
 }

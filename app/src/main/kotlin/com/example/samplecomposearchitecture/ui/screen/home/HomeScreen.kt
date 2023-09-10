@@ -7,10 +7,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
-
 }
 
 @Composable
 private fun HomeScreen() {
-
 }

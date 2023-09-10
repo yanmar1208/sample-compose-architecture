@@ -37,7 +37,7 @@ private fun NavHostController.navigateWithArgs(
     navigatorExtras: Navigator.Extras? = null,
 ) {
     val routeLink = NavDeepLinkRequest.Builder.fromUri(
-        NavDestination.createRoute(to).toUri()
+        NavDestination.createRoute(to).toUri(),
     ).build()
     val deepLinkMatch = graph.matchDeepLink(routeLink)
     if (deepLinkMatch != null) {

@@ -29,7 +29,7 @@ fun <T> Flow<LoadResult<Result<T>>>.unwrapResult(): Flow<LoadResult<T>> =
         when (loadResult) {
             is LoadResult.Success -> loadResult.value.fold(
                 onSuccess = { LoadResult.Success(it) },
-                onFailure = { LoadResult.Failure(it) }
+                onFailure = { LoadResult.Failure(it) },
             )
 
             is LoadResult.Failure -> LoadResult.Failure(loadResult.e)

@@ -3,7 +3,6 @@ package com.example.samplecomposearchitecture.ui.screen.app
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -12,7 +11,7 @@ import com.example.samplecomposearchitecture.ui.theme.SampleComposeArchitectureT
 
 @Composable
 fun AppScreen(
-    viewModel: AppViewModel = hiltViewModel()
+    viewModel: AppViewModel = hiltViewModel(),
 ) {
     SampleComposeArchitectureTheme {
         AppScreen()
@@ -23,7 +22,7 @@ fun AppScreen(
 private fun AppScreen() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
+        color = MaterialTheme.colorScheme.background,
     ) {
         AppNavHost()
     }

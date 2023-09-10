@@ -1,9 +1,7 @@
 package com.example.samplecomposearchitecture.ui.screen.home.model
 
-import android.os.Parcelable
 import com.example.samplecomposearchitecture.domain.dog.model.Dog
 import com.example.samplecomposearchitecture.ui.core.result.LoadResult
-import kotlinx.parcelize.Parcelize
 
 /**
  * ホーム画面のState
