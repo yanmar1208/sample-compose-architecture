@@ -23,6 +23,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        buildConfigField(
+            "String",
+            "BASE_URL",
+            "\"https://dog.ceo/api/breeds/\"",
+        )
     }
 
     buildTypes {
@@ -43,6 +48,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
@@ -55,8 +61,8 @@ android {
 }
 
 dependencies {
-
     implementation(libs.core.ktx)
+    implementation(libs.kotlinx.serialization.json)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
@@ -66,6 +72,10 @@ dependencies {
     implementation(libs.material3)
     implementation(libs.hilt)
     implementation(libs.hilt.navigation.compose)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.serialization.converter)
     ksp(libs.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
