@@ -10,9 +10,7 @@ import kotlinx.coroutines.flow.onStart
  *
  * @param block suspend処理
  */
-inline fun <T> loadingFlow(
-    crossinline block: suspend () -> T,
-): Flow<LoadResult<T>> =
+inline fun <T> loadingFlow(crossinline block: suspend () -> T): Flow<LoadResult<T>> =
     flow {
         runCatching { block() }
             .fold(
@@ -27,10 +25,11 @@ inline fun <T> loadingFlow(
 fun <T> Flow<LoadResult<Result<T>>>.unwrapResult(): Flow<LoadResult<T>> =
     map { loadResult ->
         when (loadResult) {
-            is LoadResult.Success -> loadResult.value.fold(
-                onSuccess = { LoadResult.Success(it) },
-                onFailure = { LoadResult.Failure(it) },
-            )
+            is LoadResult.Success ->
+                loadResult.value.fold(
+                    onSuccess = { LoadResult.Success(it) },
+                    onFailure = { LoadResult.Failure(it) },
+                )
 
             is LoadResult.Failure -> LoadResult.Failure(loadResult.e)
             is LoadResult.Initial -> LoadResult.Initial
@@ -42,7 +41,6 @@ fun <T> Flow<LoadResult<Result<T>>>.unwrapResult(): Flow<LoadResult<T>> =
  * ロード状態を表すクラス
  */
 sealed class LoadResult<out T> {
-
     /**
      * 初期状態
      */
@@ -68,16 +66,18 @@ sealed class LoadResult<out T> {
  * 成功している場合はvalueを返し、それ以外はnullを返す
  */
 val <T> LoadResult<T>.valueOrNull: T?
-    get() = when (this) {
-        is LoadResult.Success -> value
-        else -> null
-    }
+    get() =
+        when (this) {
+            is LoadResult.Success -> value
+            else -> null
+        }
 
 /**
  * 失敗している場合はerrorを返し、それ以外はnullを返す
  */
 val <T> LoadResult<T>.throwableOrNull: Throwable?
-    get() = when (this) {
-        is LoadResult.Failure -> e
-        else -> null
-    }
+    get() =
+        when (this) {
+            is LoadResult.Failure -> e
+            else -> null
+        }

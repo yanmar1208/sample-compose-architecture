@@ -11,9 +11,10 @@ import com.example.samplecomposearchitecture.ui.screen.home.home
 /**
  * [NavHostController]をprovideする
  */
-val LocalNavController = compositionLocalOf<NavHostController> {
-    error("not NavHostController provided")
-}
+val LocalNavController =
+    compositionLocalOf<NavHostController> {
+        error("not NavHostController provided")
+    }
 
 /**
  * NavHost

@@ -10,9 +10,7 @@ import com.example.samplecomposearchitecture.ui.navigation.AppNavHost
 import com.example.samplecomposearchitecture.ui.theme.SampleComposeArchitectureTheme
 
 @Composable
-fun AppScreen(
-    viewModel: AppViewModel = hiltViewModel(),
-) {
+fun AppScreen(viewModel: AppViewModel = hiltViewModel()) {
     SampleComposeArchitectureTheme {
         AppScreen()
     }

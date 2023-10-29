@@ -16,14 +16,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         // Edge-to-Edge対応
         enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.auto(
-                lightScrim = Color.Transparent.toArgb(),
-                darkScrim = Color.Transparent.toArgb(),
-            ),
-            navigationBarStyle = SystemBarStyle.auto(
-                lightScrim = Color.Transparent.toArgb(),
-                darkScrim = Color.Transparent.toArgb(),
-            ),
+            statusBarStyle =
+                SystemBarStyle.auto(
+                    lightScrim = Color.Transparent.toArgb(),
+                    darkScrim = Color.Transparent.toArgb(),
+                ),
+            navigationBarStyle =
+                SystemBarStyle.auto(
+                    lightScrim = Color.Transparent.toArgb(),
+                    darkScrim = Color.Transparent.toArgb(),
+                ),
         )
         setContent {
             AppScreen()

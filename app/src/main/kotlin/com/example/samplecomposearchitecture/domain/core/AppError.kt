@@ -27,21 +27,21 @@ sealed class AppError : RuntimeException {
             override val message: String,
             override val cause: Throwable?,
             val code: Int,
-        ): Api(cause)
+        ) : Api(cause)
 
         /**
          * タイムアウトエラー
          */
         data class TimeoutException(
             override val cause: Throwable?,
-        ): Api(cause)
+        ) : Api(cause)
     }
 
     /**
      * 不明なエラー
      */
-    class UnknownException: AppError {
-        constructor(message: String?): super(message)
-        constructor(cause: Throwable?): super(cause)
+    class UnknownException : AppError {
+        constructor(message: String?) : super(message)
+        constructor(cause: Throwable?) : super(cause)
     }
 }

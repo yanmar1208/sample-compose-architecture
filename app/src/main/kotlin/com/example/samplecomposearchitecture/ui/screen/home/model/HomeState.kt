@@ -11,13 +11,13 @@ import com.example.samplecomposearchitecture.ui.core.result.LoadResult
 data class HomeState(
     val dogResult: LoadResult<Dog>,
 ) {
-
     companion object {
         /**
          * 初期化
          */
-        fun initialState(): HomeState = HomeState(
-            dogResult = LoadResult.Initial,
-        )
+        fun initialState(): HomeState =
+            HomeState(
+                dogResult = LoadResult.Initial,
+            )
     }
 }

@@ -22,49 +22,48 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class ApiModule {
-
     /**
      * ログ出力インターセプター
      */
     @Provides
     @Singleton
-    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
-        level = if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor.Level.BODY
-        } else {
-            HttpLoggingInterceptor.Level.NONE
+    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor =
+        HttpLoggingInterceptor().apply {
+            level =
+                if (BuildConfig.DEBUG) {
+                    HttpLoggingInterceptor.Level.BODY
+                } else {
+                    HttpLoggingInterceptor.Level.NONE
+                }
         }
-    }
 
     /**
      * OkHttpClient
      */
     @Provides
     @Singleton
-    fun provideOkHttpClient(
-        httpLoggingInterceptor: HttpLoggingInterceptor,
-    ): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(httpLoggingInterceptor)
-        .connectTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        .writeTimeout(30, TimeUnit.SECONDS)
-        .callTimeout(30, TimeUnit.SECONDS)
-        .build()
+    fun provideOkHttpClient(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder()
+            .addInterceptor(httpLoggingInterceptor)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
+            .callTimeout(30, TimeUnit.SECONDS)
+            .build()
 
     /**
      * Retrofit
      */
     @Provides
     @Singleton
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-    ): Retrofit {
-        val formatter = Json {
-            encodeDefaults = true
-            ignoreUnknownKeys = true
-            coerceInputValues = true // 存在しないEnumがきた時のため
-            namingStrategy = JsonNamingStrategy.SnakeCase
-        }
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        val formatter =
+            Json {
+                encodeDefaults = true
+                ignoreUnknownKeys = true
+                coerceInputValues = true // 存在しないEnumがきた時のため
+                namingStrategy = JsonNamingStrategy.SnakeCase
+            }
         val contentType = "application/json".toMediaType()
 
         return Retrofit.Builder()
@@ -79,7 +78,5 @@ class ApiModule {
      */
     @Provides
     @Singleton
-    fun provideDogAPI(
-        retrofit: Retrofit,
-    ) = retrofit.create(DogAPI::class.java)
+    fun provideDogAPI(retrofit: Retrofit) = retrofit.create(DogAPI::class.java)
 }

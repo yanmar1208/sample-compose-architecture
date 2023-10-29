@@ -7,7 +7,6 @@ import retrofit2.http.GET
  * Dog API
  */
 interface DogAPI {
-
     /**
      * ランダムな画像URL取得
      */
