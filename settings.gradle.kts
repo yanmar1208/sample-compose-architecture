@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "SampleComposeArchitecture"
 include(":app")
+include(":lint")
