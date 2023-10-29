@@ -1,6 +1,6 @@
 package com.example.samplecomposearchitecture
 
-import org.junit.Assert.*
+import junit.framework.Assert.assertEquals
 import org.junit.Test
 
 /**

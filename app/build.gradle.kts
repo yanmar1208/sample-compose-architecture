@@ -26,7 +26,7 @@ android {
         buildConfigField(
             "String",
             "BASE_URL",
-            "\"https://dog.ceo/api/breeds/\"",
+            "\"https://dog.ceo/api/breeds/\""
         )
     }
 
@@ -35,7 +35,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro",
+                "proguard-rules.pro"
             )
         }
     }
@@ -104,7 +104,7 @@ val ktlintCheck by tasks.registering(JavaExec::class) {
         "**/src/**/*.kt",
         "**.kts",
         "!**/build/**",
-        "--editorconfig=${rootProject.rootDir}/ktlint/.editorconfig",
+        "--editorconfig=${rootProject.rootDir}/ktlint/.editorconfig"
     )
     isIgnoreExitValue = true
 }
@@ -125,7 +125,7 @@ tasks.register<JavaExec>("ktlintFormat") {
         "**/src/**/*.kt",
         "**.kts",
         "!**/build/**",
-        "--editorconfig=${rootProject.rootDir}/ktlint/.editorconfig",
+        "--editorconfig=${rootProject.rootDir}/ktlint/.editorconfig"
     )
     isIgnoreExitValue = true
 }

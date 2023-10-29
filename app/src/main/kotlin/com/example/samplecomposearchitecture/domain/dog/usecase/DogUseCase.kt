@@ -8,12 +8,11 @@ import javax.inject.Inject
  * DogのUseCase
  */
 class DogUseCase
-    @Inject
-    constructor(
-        private val dogRepository: DogRepository,
-    ) {
-        suspend operator fun invoke(): Result<Dog> =
-            runCatching {
-                dogRepository.getDog()
-            }
+@Inject
+constructor(
+    private val dogRepository: DogRepository
+) {
+    suspend operator fun invoke(): Result<Dog> = runCatching {
+        dogRepository.getDog()
     }
+}

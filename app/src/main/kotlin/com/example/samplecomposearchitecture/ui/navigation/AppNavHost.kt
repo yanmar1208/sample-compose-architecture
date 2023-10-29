@@ -22,12 +22,12 @@ val LocalNavController =
 @Composable
 fun AppNavHost(
     modifier: Modifier = Modifier,
-    navController: NavHostController = LocalNavController.current,
+    navController: NavHostController = LocalNavController.current
 ) {
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = HOME_ROUTE,
+        startDestination = HOME_ROUTE
     ) {
         home()
     }

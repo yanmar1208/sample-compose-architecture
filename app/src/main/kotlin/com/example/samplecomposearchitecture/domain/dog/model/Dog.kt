@@ -10,5 +10,5 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 data class Dog(
-    val url: String,
+    val url: String
 ) : Parcelable

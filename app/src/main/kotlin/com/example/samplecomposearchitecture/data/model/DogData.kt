@@ -12,7 +12,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class DogData(
     val message: String,
-    val status: String,
+    val status: String
 )
 
 /**

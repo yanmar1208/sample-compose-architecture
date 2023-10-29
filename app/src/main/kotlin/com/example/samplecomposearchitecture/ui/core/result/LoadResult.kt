@@ -10,32 +10,30 @@ import kotlinx.coroutines.flow.onStart
  *
  * @param block suspend処理
  */
-inline fun <T> loadingFlow(crossinline block: suspend () -> T): Flow<LoadResult<T>> =
-    flow {
-        runCatching { block() }
-            .fold(
-                onSuccess = { LoadResult.Success(it) },
-                onFailure = { LoadResult.Failure(it) },
-            ).let { emit(it) }
-    }.onStart { emit(LoadResult.Loading) }
+inline fun <T> loadingFlow(crossinline block: suspend () -> T): Flow<LoadResult<T>> = flow {
+    runCatching { block() }
+        .fold(
+            onSuccess = { LoadResult.Success(it) },
+            onFailure = { LoadResult.Failure(it) }
+        ).let { emit(it) }
+}.onStart { emit(LoadResult.Loading) }
 
 /**
  * LoadResult<Result<T>>>をLoadResult<T>に変換する
  */
-fun <T> Flow<LoadResult<Result<T>>>.unwrapResult(): Flow<LoadResult<T>> =
-    map { loadResult ->
-        when (loadResult) {
-            is LoadResult.Success ->
-                loadResult.value.fold(
-                    onSuccess = { LoadResult.Success(it) },
-                    onFailure = { LoadResult.Failure(it) },
-                )
+fun <T> Flow<LoadResult<Result<T>>>.unwrapResult(): Flow<LoadResult<T>> = map { loadResult ->
+    when (loadResult) {
+        is LoadResult.Success ->
+            loadResult.value.fold(
+                onSuccess = { LoadResult.Success(it) },
+                onFailure = { LoadResult.Failure(it) }
+            )
 
-            is LoadResult.Failure -> LoadResult.Failure(loadResult.e)
-            is LoadResult.Initial -> LoadResult.Initial
-            is LoadResult.Loading -> LoadResult.Loading
-        }
+        is LoadResult.Failure -> LoadResult.Failure(loadResult.e)
+        is LoadResult.Initial -> LoadResult.Initial
+        is LoadResult.Loading -> LoadResult.Loading
     }
+}
 
 /**
  * ロード状態を表すクラス

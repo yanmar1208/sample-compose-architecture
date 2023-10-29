@@ -17,7 +17,7 @@ sealed class AppError : RuntimeException {
          * ネットワークエラー
          */
         data class NetworkException(
-            override val cause: Throwable?,
+            override val cause: Throwable?
         ) : Api(cause)
 
         /**
@@ -26,14 +26,14 @@ sealed class AppError : RuntimeException {
         data class HttpException(
             override val message: String,
             override val cause: Throwable?,
-            val code: Int,
+            val code: Int
         ) : Api(cause)
 
         /**
          * タイムアウトエラー
          */
         data class TimeoutException(
-            override val cause: Throwable?,
+            override val cause: Throwable?
         ) : Api(cause)
     }
 

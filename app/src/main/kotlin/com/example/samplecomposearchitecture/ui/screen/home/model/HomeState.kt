@@ -9,15 +9,14 @@ import com.example.samplecomposearchitecture.ui.core.result.LoadResult
  * @property dogResult Dogデータの読み込み状態
  */
 data class HomeState(
-    val dogResult: LoadResult<Dog>,
+    val dogResult: LoadResult<Dog>
 ) {
     companion object {
         /**
          * 初期化
          */
-        fun initialState(): HomeState =
-            HomeState(
-                dogResult = LoadResult.Initial,
-            )
+        fun initialState(): HomeState = HomeState(
+            dogResult = LoadResult.Initial
+        )
     }
 }

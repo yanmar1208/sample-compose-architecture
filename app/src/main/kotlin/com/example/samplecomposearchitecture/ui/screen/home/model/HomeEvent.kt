@@ -10,6 +10,6 @@ sealed class HomeEvent {
      * 詳細画面へ
      */
     data class ToDetail(
-        val dog: Dog,
+        val dog: Dog
     ) : HomeEvent()
 }

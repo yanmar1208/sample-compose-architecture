@@ -1,0 +1,8 @@
+[*.{kt,kts}]
+ktlint_code_style = android_studio
+# Compose関数に引っかからないようにする
+ktlint_standard_function-naming = disabled
+# ファイル名小文字スタートを許容する
+ktlint_standard_filename = disabled
+# プロパティ名のアンスコスタートを許容する
+ktlint_standard_property-naming = disabled
