@@ -41,6 +41,8 @@ constructor(
         _dogResult.onEach { dogResult ->
             _state.update { it.copy(dogResult = dogResult) }
         }.launchIn(viewModelScope)
+
+        fetchDog()
     }
 
     /**

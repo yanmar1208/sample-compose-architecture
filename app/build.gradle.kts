@@ -65,7 +65,9 @@ val ktlint by configurations.creating
 dependencies {
     implementation(libs.core.ktx)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.coroutines)
     implementation(libs.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.runtime.compose)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.ui)

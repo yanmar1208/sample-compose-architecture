@@ -5,6 +5,7 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.example.samplecomposearchitecture.ui.screen.detail.detail
 import com.example.samplecomposearchitecture.ui.screen.home.HOME_ROUTE
 import com.example.samplecomposearchitecture.ui.screen.home.home
 
@@ -30,5 +31,6 @@ fun AppNavHost(
         startDestination = HOME_ROUTE
     ) {
         home()
+        detail()
     }
 }
