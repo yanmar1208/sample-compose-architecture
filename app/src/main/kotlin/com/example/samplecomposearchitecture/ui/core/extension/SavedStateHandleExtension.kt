@@ -4,9 +4,9 @@ import androidx.compose.runtime.saveable.Saver
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewmodel.compose.SavedStateHandleSaveableApi
 import androidx.lifecycle.viewmodel.compose.saveable
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlin.properties.PropertyDelegateProvider
 import kotlin.properties.ReadOnlyProperty
+import kotlinx.coroutines.flow.MutableStateFlow
 
 /**
  * [SavedStateHandle]から[MutableStateFlow]を生成する
@@ -18,11 +18,11 @@ import kotlin.properties.ReadOnlyProperty
  */
 @OptIn(SavedStateHandleSaveableApi::class)
 fun <T : Any> SavedStateHandle.saveableFlow(
-    init: T,
+    init: T
 ): PropertyDelegateProvider<Any?, ReadOnlyProperty<Any?, MutableStateFlow<T>>> = saveable(
     saver = Saver(
         save = { it.value },
-        restore = { MutableStateFlow(it) },
+        restore = { MutableStateFlow(it) }
     ),
-    init = { MutableStateFlow(init) },
+    init = { MutableStateFlow(init) }
 )

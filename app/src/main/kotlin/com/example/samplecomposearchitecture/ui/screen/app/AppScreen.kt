@@ -41,10 +41,10 @@ private fun AppScreen() {
 @Composable
 private fun AppCompositionLocalProvider(
     navController: NavHostController = rememberNavController(),
-    content: @Composable () -> Unit,
+    content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalNavController provides navController,
+        LocalNavController provides navController
     ) {
         content()
     }

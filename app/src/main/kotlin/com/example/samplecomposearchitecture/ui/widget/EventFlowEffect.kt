@@ -12,10 +12,7 @@ import kotlinx.coroutines.launch
  * ComposeでFlowを受け取って非同期でcollectし、collectorの中身を実行する
  */
 @Composable
-fun <T> EventFlowEffect(
-    flow: Flow<T>,
-    collector: FlowCollector<T>,
-) {
+fun <T> EventFlowEffect(flow: Flow<T>, collector: FlowCollector<T>) {
     LaunchedEffect(key1 = flow) {
         flow.collect {
             // それぞれのイベントを並列処理したいのでlaunchしている

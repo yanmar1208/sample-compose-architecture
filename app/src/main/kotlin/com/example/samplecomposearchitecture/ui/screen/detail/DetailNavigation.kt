@@ -23,8 +23,8 @@ fun NavHostController.navigateToDetail(url: String) {
     navigateSafely(
         to = DETAIL_ROUTE,
         args = bundleOf(
-            DetailArgKeys.Url.name to url,
-        ),
+            DetailArgKeys.Url.name to url
+        )
     )
 }
 
@@ -34,15 +34,15 @@ fun NavHostController.navigateToDetail(url: String) {
  * @property url URL
  */
 data class DetailArgs(
-    val url: String,
+    val url: String
 ) {
     constructor(savedStateHandle: SavedStateHandle) : this(
-        url = requireNotNull(savedStateHandle[DetailArgKeys.Url.name]),
+        url = requireNotNull(savedStateHandle[DetailArgKeys.Url.name])
     )
 }
 
 const val DETAIL_ROUTE = "detail"
 
 enum class DetailArgKeys {
-    Url,
+    Url
 }

@@ -3,12 +3,7 @@ package com.example.samplecomposearchitecture.ui.screen.detail
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.samplecomposearchitecture.domain.dog.model.Dog
-import com.example.samplecomposearchitecture.domain.dog.usecase.DogUseCase
 import com.example.samplecomposearchitecture.ui.core.extension.saveableFlow
-import com.example.samplecomposearchitecture.ui.core.result.LoadResult
-import com.example.samplecomposearchitecture.ui.core.result.loadingFlow
-import com.example.samplecomposearchitecture.ui.core.result.unwrapResult
 import com.example.samplecomposearchitecture.ui.screen.detail.model.DetailEvent
 import com.example.samplecomposearchitecture.ui.screen.detail.model.DetailState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -27,7 +22,7 @@ import kotlinx.coroutines.flow.update
 class DetailViewModel
 @Inject
 constructor(
-    savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     private val args: DetailArgs = DetailArgs(savedStateHandle)
 

@@ -1,7 +1,5 @@
 package com.example.samplecomposearchitecture.ui.screen.detail.model
 
-import com.example.samplecomposearchitecture.domain.dog.model.Dog
-import com.example.samplecomposearchitecture.ui.core.result.LoadResult
 import com.example.samplecomposearchitecture.ui.screen.detail.DetailArgs
 
 /**
@@ -18,9 +16,7 @@ data class DetailState(
          *
          * @param detailArgs 詳細画面の引数
          */
-        fun initialState(
-            detailArgs: DetailArgs,
-        ): DetailState = DetailState(
+        fun initialState(detailArgs: DetailArgs): DetailState = DetailState(
             url = detailArgs.url,
         )
     }
